@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
-import CancelIcon from '@mui/icons-material/Cancel';
-import { Box, Fab, Grow } from '@mui/material';
+import { Fab, Grow } from '@mui/material';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -11,9 +12,18 @@ function CreateArea(props) {
 
   const [isExpanded, setExpanded] = useState(false);
 
-  //character limit
+  //textarea character limit
   const charLimit = 100;
+  //textarea character left
   const charLeft = charLimit - note.content.length;
+
+  function expand() {
+    setExpanded(true);
+  }
+
+  function toggleForm() {
+    setExpanded((prev) => !prev);
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -35,32 +45,26 @@ function CreateArea(props) {
     event.preventDefault();
   }
 
-  function expand() {
-    setExpanded(true);
-  }
-
-  // function cancel() {
-  //   if (!isExpanded) {
-  //     setExpanded(false);
-  //   }
-  // }
-
   return (
-    <div>
-      <form className='create-note'>
-        <input
-          name='title'
-          onChange={handleChange}
-          value={note.title}
-          placeholder='Title'
-          onClick={expand}
-        />
+    <div className='create-note'>
+      <form>
+        <div style={{ display: 'flex' }}>
+          <input
+            name='title'
+            onChange={handleChange}
+            value={note.title}
+            maxLength='25'
+            placeholder='Title'
+            onClick={expand}
+          />
+          <FormControlLabel control={<Switch checked={isExpanded} onChange={toggleForm} />} />
+        </div>
         <div style={{ display: isExpanded ? 'block' : 'none' }}>
           <textarea
             name='content'
             onChange={handleChange}
             value={note.content}
-            maxlength='100'
+            maxLength='100'
             placeholder='Take a note...'
             rows='3'
           />
