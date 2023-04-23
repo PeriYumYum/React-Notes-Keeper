@@ -1,13 +1,11 @@
 import React from 'react';
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 
 function Header() {
   return (
     <header>
-      <h1>
-        <AccessAlarmIcon />
-        Keeper
-      </h1>
+      <EventNoteIcon fontSize='large' className='logo' />
+      <h1>Keeper</h1>
     </header>
   );
 }
