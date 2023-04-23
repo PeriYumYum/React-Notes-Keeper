@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
-import { Fab, Zoom } from '@mui/material';
+import CancelIcon from '@mui/icons-material/Cancel';
+import { Box, Fab, Grow } from '@mui/material';
+
 function CreateArea(props) {
   const [note, setNote] = useState({
     title: '',
@@ -8,6 +10,10 @@ function CreateArea(props) {
   });
 
   const [isExpanded, setExpanded] = useState(false);
+
+  //character limit
+  const charLimit = 100;
+  const charLeft = charLimit - note.content.length;
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -33,6 +39,12 @@ function CreateArea(props) {
     setExpanded(true);
   }
 
+  // function cancel() {
+  //   if (!isExpanded) {
+  //     setExpanded(false);
+  //   }
+  // }
+
   return (
     <div>
       <form className='create-note'>
@@ -43,19 +55,22 @@ function CreateArea(props) {
           placeholder='Title'
           onClick={expand}
         />
-        <textarea
-          name='content'
-          onChange={handleChange}
-          value={note.content}
-          placeholder='Take a note...'
-          rows='3'
-          style={{ display: isExpanded ? 'block' : 'none' }}
-        />
-        <Zoom in={isExpanded}>
-          <Fab onClick={submitNote}>
-            <AddIcon />
-          </Fab>
-        </Zoom>
+        <div style={{ display: isExpanded ? 'block' : 'none' }}>
+          <textarea
+            name='content'
+            onChange={handleChange}
+            value={note.content}
+            maxlength='100'
+            placeholder='Take a note...'
+            rows='3'
+          />
+          <span className='label'>{charLeft} left</span>
+          <Grow in={isExpanded}>
+            <Fab onClick={submitNote}>
+              <AddIcon />
+            </Fab>
+          </Grow>
+        </div>
       </form>
     </div>
   );
