@@ -5,17 +5,19 @@ html {
   --header-color: '#fff';
 }
 body {
+  margin: 0;
   background-color: #eee;
-  background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');
-  padding: 0 16px;
+  background-image: url('./whitey.png');
+  backgroundposition: 'center';
+  width: '100%';
+  height: '100%';
 }
 
 header {
   background-color: #f5b041;
-  margin: 16px 0px;
+  margin: 0;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
   justify-items: center;
   position: relative;
   display: flex;
