@@ -10,7 +10,7 @@ function Note(props) {
       <h1>{props.title}</h1>
       <p>{props.content}</p>
       <button onClick={handleClick}>
-        <DeleteForeverIcon />
+        <DeleteForeverIcon style={{ color: 'royalblue' }} />
       </button>
     </div>
   );

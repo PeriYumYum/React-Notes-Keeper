@@ -2,19 +2,23 @@ html {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  --header-color: '#fff';
+  --header-color: #ffffff;
+  --main-color: orange;
+  --main-hover: darkorange;
 }
 body {
   margin: 0;
-  background-color: #eee;
+  background-color: #ffffff;
   background-image: url('./whitey.png');
   backgroundposition: 'center';
   width: '100%';
   height: '100%';
 }
 
+/* header */
+
 header {
-  background-color: #f5b041;
+  background-color: var(--main-color);
   margin: 0;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -22,12 +26,10 @@ header {
   position: relative;
   display: flex;
 }
-
 .logo {
   padding: 5px;
   justify-self: center;
 }
-
 header h1 {
   margin: 5px;
   color: var(--header-color);
@@ -35,26 +37,60 @@ header h1 {
   font-weight: 200;
 }
 
-footer {
-  margin: absolute;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
+/* create area */
+
+.create-note {
+  display: flex;
+  margin: 0px 16px;
+}
+.create-note form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.create-note input,
+textarea {
+  padding: 0;
   width: 100%;
-  height: 2.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.create-note button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: var(--main-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+.create-note button:hover {
+  background-color: var(--main-hover);
 }
 
-footer p {
-  color: #ccc;
-}
+/* notes */
+
 .note {
-  background: #fff;
-  border-radius: 7px;
+  background: #ffffff;
+  border-radius: 16px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
   margin: 16px;
-  float: left;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
 }
 .note h1 {
   font-size: 1.1em;
@@ -66,10 +102,9 @@ footer p {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
 .note button {
   position: relative;
-  float: right;
+  align-self: end;
   margin-right: 10px;
   color: #f5ba13;
   border: none;
@@ -79,45 +114,14 @@ footer p {
   outline: none;
 }
 
-.create-note {
-  display: flex;
-  padding: 0px 16px;
-}
+/* footer */
 
-.create-note form {
-  position: relative;
-  width: 480px;
-  margin: 30px auto 20px auto;
-  background: #fff;
-  padding: 15px;
-  border-radius: 20px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
-}
-.create-note input,
-textarea {
+footer {
+  margin: 16px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  border: none;
-  padding: 4px;
-  outline: none;
-  font-size: 1.2em;
-  font-family: inherit;
-  resize: none;
-}
-.create-note button {
-  position: absolute;
-  right: 18px;
-  bottom: -18px;
-  background: #f5b041;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  outline: none;
-}
-
-.create-note button:hover {
-  background-color: #f39c12;
+  height: 2.5rem;
+  color: darkgray;
 }
