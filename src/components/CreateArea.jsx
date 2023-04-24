@@ -56,8 +56,12 @@ function CreateArea(props) {
             maxLength='25'
             placeholder='Title'
             onClick={expand}
+            autoComplete='off'
           />
-          <FormControlLabel control={<Switch checked={isExpanded} onChange={toggleForm} />} />
+          <FormControlLabel
+            control={<Switch checked={isExpanded} onChange={toggleForm} color='default' />}
+            style={{ width: '36px' }}
+          />
         </div>
         <div style={{ display: isExpanded ? 'block' : 'none' }}>
           <textarea
@@ -67,6 +71,7 @@ function CreateArea(props) {
             maxLength='100'
             placeholder='Take a note...'
             rows='3'
+            autoComplete='off'
           />
           <span className='label'>{charLeft} left</span>
           <Grow in={isExpanded}>
