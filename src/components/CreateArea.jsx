@@ -47,7 +47,7 @@ function CreateArea(props) {
 
   return (
     <div className='create-note'>
-      <form>
+      <form autoComplete='off'>
         <div style={{ display: 'flex' }}>
           <input
             name='title'

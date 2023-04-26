@@ -87,8 +87,8 @@ textarea {
   border-radius: 16px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  margin: 16px;
-  width: 240px;
+  margin: 10px;
+  width: 270px;
   display: flex;
   flex-direction: column;
 }
@@ -112,6 +112,13 @@ textarea {
   height: 36px;
   cursor: pointer;
   outline: none;
+}
+
+.notes-container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
 
 /* footer */
