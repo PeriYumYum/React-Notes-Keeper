@@ -9,10 +9,11 @@ function CreateArea(props) {
     title: '',
     content: '',
   });
+
   const [isExpanded, setExpanded] = useState(false);
 
   //textarea character limit
-  const charLimit = 100;
+  const charLimit = 150;
   //textarea character left
   const charLeft = charLimit - note.content.length;
 
@@ -36,7 +37,9 @@ function CreateArea(props) {
   };
 
   const submitNote = (event) => {
-    props.onAdd(note);
+    if (note.title !== '' || note.content !== '') {
+      props.onAdd(note);
+    }
     setNote({
       title: '',
       content: '',
@@ -67,7 +70,7 @@ function CreateArea(props) {
             name='content'
             onChange={handleChange}
             value={note.content}
-            maxLength='100'
+            maxLength='150'
             placeholder='Take a note...'
             rows='3'
             autoComplete='off'

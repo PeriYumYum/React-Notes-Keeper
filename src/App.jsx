@@ -3,6 +3,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Note from './components/Note';
 import CreateArea from './components/CreateArea';
+// *If clear localStorage is needed, or localStorage go wrong with webpage, activate this code:
+//localStorage.clear();
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -19,7 +21,7 @@ function App() {
     localStorage.setItem('notes', JSON.stringify(notesArray));
   };
 
-  // Save to LocalStorage func
+  // save to LocalStorage func
   const addNote = (newNote) => {
     setNotes((prevNotes) => {
       updateLocalStorage([...prevNotes, newNote]);
@@ -27,11 +29,14 @@ function App() {
     });
   };
 
+  // delete note func
   const deleteNote = (id) => {
     setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
+      const updateItems = prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
+      updateLocalStorage(updateItems);
+      return updateItems;
     });
   };
 
