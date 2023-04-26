@@ -9,7 +9,6 @@ function CreateArea(props) {
     title: '',
     content: '',
   });
-
   const [isExpanded, setExpanded] = useState(false);
 
   //textarea character limit
@@ -17,15 +16,15 @@ function CreateArea(props) {
   //textarea character left
   const charLeft = charLimit - note.content.length;
 
-  function expand() {
+  const expand = () => {
     setExpanded(true);
-  }
+  };
 
-  function toggleForm() {
+  const toggleForm = () => {
     setExpanded((prev) => !prev);
-  }
+  };
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const { name, value } = event.target;
 
     setNote((prevNote) => {
@@ -34,16 +33,16 @@ function CreateArea(props) {
         [name]: value,
       };
     });
-  }
+  };
 
-  function submitNote(event) {
+  const submitNote = (event) => {
     props.onAdd(note);
     setNote({
       title: '',
       content: '',
     });
     event.preventDefault();
-  }
+  };
 
   return (
     <div className='create-note'>
