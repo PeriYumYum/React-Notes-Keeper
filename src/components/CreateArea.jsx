@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import { Fab, Grow } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -13,6 +13,8 @@ function CreateArea(props) {
   });
 
   const [isExpanded, setExpanded] = useState(false);
+
+  const textAreaRef = useRef(null);
 
   //textarea character limit
   const charLimit = 150;
@@ -50,6 +52,14 @@ function CreateArea(props) {
     e.preventDefault();
   };
 
+  // instead of Enter key submission, move focus to textarea
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      textAreaRef.current.focus();
+    }
+  };
+
   return (
     <div className='create-note'>
       <form autoComplete='off'>
@@ -62,6 +72,7 @@ function CreateArea(props) {
             placeholder='Title'
             onClick={expand}
             autoComplete='off'
+            onKeyDown={handleKeyDown}
           />
           <FormControlLabel
             control={<Switch checked={isExpanded} onChange={toggleForm} color='default' />}
@@ -77,6 +88,7 @@ function CreateArea(props) {
             placeholder='Take a note...'
             rows='3'
             autoComplete='off'
+            ref={textAreaRef}
           />
           <span className='label'>{charLeft} left</span>
           <Grow in={isExpanded}>
