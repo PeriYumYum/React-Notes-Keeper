@@ -4,39 +4,29 @@ import Footer from './components/Footer';
 import Note from './components/Note';
 import CreateArea from './components/CreateArea';
 // *If clear localStorage is needed, or localStorage go wrong with webpage, activate this code:
-//localStorage.clear();
+// localStorage.clear();
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
 
-  // get the saved notes and add them to the array
+  // set notes to local storage
   useEffect(() => {
-    const storedNotes = JSON.parse(localStorage.getItem('notes'));
-    if (storedNotes) {
-      setNotes(storedNotes);
-    }
-  }, []);
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
-  const updateLocalStorage = (notesArray) => {
-    localStorage.setItem('notes', JSON.stringify(notesArray));
-  };
-
-  // save to LocalStorage func
+  // add notes func
   const addNote = (newNote) => {
     setNotes((prevNotes) => {
-      updateLocalStorage([...prevNotes, newNote]);
       return [...prevNotes, newNote];
     });
   };
 
   // delete note func
-  const deleteNote = (id) => {
+  const deleteNote = (del_id) => {
     setNotes((prevNotes) => {
-      const updateItems = prevNotes.filter((noteItem, index) => {
-        return index !== id;
+      return prevNotes.filter((note) => {
+        return note.id !== del_id;
       });
-      updateLocalStorage(updateItems);
-      return updateItems;
     });
   };
 
@@ -49,7 +39,7 @@ function App() {
           return (
             <Note
               key={index}
-              id={index}
+              id={noteItem.id}
               title={noteItem.title}
               content={noteItem.content}
               onDelete={deleteNote}

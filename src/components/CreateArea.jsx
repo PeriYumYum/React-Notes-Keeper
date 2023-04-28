@@ -3,9 +3,11 @@ import AddIcon from '@mui/icons-material/Add';
 import { Fab, Grow } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { v4 as uuidv4 } from 'uuid';
 
 function CreateArea(props) {
   const [note, setNote] = useState({
+    id: '',
     title: '',
     content: '',
   });
@@ -25,18 +27,19 @@ function CreateArea(props) {
     setExpanded((prev) => !prev);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
     setNote((prevNote) => {
       return {
         ...prevNote,
         [name]: value,
+        id: uuidv4(),
       };
     });
   };
 
-  const submitNote = (event) => {
+  const submitNote = (e) => {
     if (note.title !== '' || note.content !== '') {
       props.onAdd(note);
     }
@@ -44,7 +47,7 @@ function CreateArea(props) {
       title: '',
       content: '',
     });
-    event.preventDefault();
+    e.preventDefault();
   };
 
   return (
