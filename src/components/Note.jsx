@@ -9,7 +9,7 @@ function Note(props) {
     <div className='note'>
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClick}>
+      <button title='delete note' onClick={handleClick}>
         <DeleteForeverIcon style={{ color: 'royalblue' }} />
       </button>
     </div>

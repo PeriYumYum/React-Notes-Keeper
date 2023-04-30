@@ -62,7 +62,7 @@ function CreateArea(props) {
 
   return (
     <div className='create-note'>
-      <form autoComplete='off'>
+      <form title='note form' autoComplete='off'>
         <div style={{ display: 'flex' }}>
           <input
             name='title'
@@ -75,6 +75,7 @@ function CreateArea(props) {
             onKeyDown={handleKeyDown}
           />
           <FormControlLabel
+            title='toggle form'
             control={<Switch checked={isExpanded} onChange={toggleForm} color='default' />}
             style={{ width: '36px' }}
           />
@@ -92,7 +93,7 @@ function CreateArea(props) {
           />
           <span className='label'>{charLeft} left</span>
           <Grow in={isExpanded}>
-            <Fab onClick={submitNote}>
+            <Fab title='add note' onClick={submitNote}>
               <AddIcon />
             </Fab>
           </Grow>
