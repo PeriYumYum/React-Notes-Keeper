@@ -46,7 +46,7 @@ header h1 {
 .create-note form {
   position: relative;
   width: 480px;
-  margin: 30px auto 20px auto;
+  margin: 30px auto 30px auto;
   background: #fff;
   padding: 16px;
   border-radius: 16px;
@@ -81,31 +81,45 @@ textarea {
 }
 
 /* notes */
+.container {
+  padding: 0 16px 20px 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
 
 .note {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  margin: 10px;
-  width: 270px;
+  padding: 16px;
+  min-height: 170px;
+  width: 92%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
 }
-.note h1 {
+.note h2 {
   font-size: 1.1em;
-  margin-bottom: 6px;
+  margin: 0;
 }
 .note p {
   font-size: 1.1em;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
+  margin: 10px 0;
+  //white-space: pre-wrap;
   word-wrap: break-word;
 }
 .note button {
   position: relative;
   align-self: end;
-  margin-right: 10px;
   color: #f5ba13;
   border: none;
   width: 36px;
@@ -114,11 +128,15 @@ textarea {
   outline: none;
 }
 
-.notes-container {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
+.note-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-CTA {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* footer */
@@ -126,7 +144,6 @@ textarea {
 footer {
   margin: 16px;
   text-align: center;
-  position: fixed;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
