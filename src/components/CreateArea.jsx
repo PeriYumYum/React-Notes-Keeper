@@ -10,6 +10,7 @@ function CreateArea(props) {
     id: '',
     title: '',
     content: '',
+    date: '',
   });
 
   const [isExpanded, setExpanded] = useState(false);
@@ -31,12 +32,14 @@ function CreateArea(props) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const date = new Date();
 
     setNote((prevNote) => {
       return {
         ...prevNote,
         [name]: value,
         id: uuidv4(),
+        date: date.toLocaleString(),
       };
     });
   };
@@ -48,6 +51,7 @@ function CreateArea(props) {
     setNote({
       title: '',
       content: '',
+      date: '',
     });
     e.preventDefault();
   };

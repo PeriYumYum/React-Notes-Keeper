@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Note from './components/Note';
 import CreateArea from './components/CreateArea';
 // *If clear localStorage is needed, or localStorage go wrong with webpage, activate this code:
-// localStorage.clear();
+//localStorage.clear();
 
 function App() {
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
@@ -43,6 +43,7 @@ function App() {
                 id={noteItem.id}
                 title={noteItem.title}
                 content={noteItem.content}
+                date={noteItem.date}
                 onDelete={deleteNote}
               />
             );

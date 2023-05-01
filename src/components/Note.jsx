@@ -12,7 +12,7 @@ function Note(props) {
         <p>{props.content}</p>
       </div>
       <div className='note-CTA'>
-        <span>time stamp</span>
+        <span>{props.date}</span>
         <button title='delete note' onClick={handleClick}>
           <DeleteForeverIcon style={{ color: 'royalblue' }} />
         </button>
