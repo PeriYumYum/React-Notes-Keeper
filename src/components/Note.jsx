@@ -13,9 +13,15 @@ function Note(props) {
       </div>
       <div className='note-CTA'>
         <span>{props.date}</span>
-        <button title='delete note' onClick={handleClick}>
-          <DeleteForeverIcon style={{ color: 'royalblue' }} />
-        </button>
+        <span title='delete note' className='delete-btn' onClick={handleClick}>
+          <DeleteForeverIcon
+            sx={{
+              color: 'royalblue',
+              backgroundColor: 'white',
+              fontSize: 28,
+            }}
+          />
+        </span>
       </div>
     </div>
   );

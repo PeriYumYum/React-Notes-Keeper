@@ -115,16 +115,6 @@ textarea {
   //white-space: pre-wrap;
   word-wrap: break-word;
 }
-.note button {
-  position: relative;
-  align-self: end;
-  color: #f5ba13;
-  border: none;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  outline: none;
-}
 .note-content {
   display: flex;
   flex-direction: column;
@@ -133,6 +123,9 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.delete-btn {
+  cursor: pointer;
 }
 
 /* footer */
