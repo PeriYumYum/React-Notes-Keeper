@@ -82,26 +82,23 @@ textarea {
 
 /* notes */
 .container {
-  padding: 0 16px 20px 16px;
-  max-width: 980px;
+  padding: 0 16px 32px 16px;
+  max-width: 1088px;
   margin: 0 auto;
 }
-
 .notes-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(352px, 1fr));
+  gap: 16px;
   justify-items: center;
 }
-
 .note {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 2px 5px #ccc;
   padding: 16px;
   min-height: 170px;
-  width: 92%;
-  max-width: 400px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -127,12 +124,10 @@ textarea {
   cursor: pointer;
   outline: none;
 }
-
 .note-content {
   display: flex;
   flex-direction: column;
 }
-
 .note-CTA {
   display: flex;
   justify-content: space-between;
