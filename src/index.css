@@ -2,9 +2,9 @@ html {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  --header-color: #ffffff;
-  --main-color: orange;
-  --main-hover: darkorange;
+  --header-color: black;
+  --main-color: Turquoise;
+  --main-hover: DarkTurquoise;
 }
 body {
   margin: 0;
@@ -20,18 +20,19 @@ body {
 header {
   background-color: var(--main-color);
   margin: 0;
-  padding: 16px 32px;
+  padding: 20px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   justify-items: center;
   position: relative;
   display: flex;
+  gap: 10px;
 }
 .logo {
-  padding: 5px;
-  justify-self: center;
+  //padding: 5px;
+  align-self: center;
 }
 header h1 {
-  margin: 5px;
+  margin: 0;
   color: var(--header-color);
   font-family: 'Lilita One', cursive;
   font-weight: 200;
@@ -46,8 +47,8 @@ header h1 {
 .create-note form {
   position: relative;
   width: 480px;
-  margin: 30px auto 30px auto;
-  background: #fff;
+  margin: 36px auto 36px auto;
+  background: #ffffff;
   padding: 16px;
   border-radius: 16px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
