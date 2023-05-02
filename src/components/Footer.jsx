@@ -4,7 +4,7 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer>
-      <p>Copyright ⓒ {year}</p>
+      <p>Designed and Built by Peri👒 ⓒ {year}</p>
     </footer>
   );
 }

@@ -131,7 +131,8 @@ textarea {
 /* footer */
 
 footer {
-  margin: 16px;
+  position: relative;
+  margin: 32px auto 0;
   text-align: center;
   bottom: 0;
   width: 100%;
